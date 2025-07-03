@@ -60,7 +60,7 @@ class MusicAssistant(AIAssistant):
         genre = self.user.preferences.get("genre", "pop")
         playlist = self.recommend_playlist(genre)
         msg = (
-            f"🎶 Here is your {genre.title()} playlist:\n"
+            f"Here is your {genre.title()} playlist:\n"
             + "\n".join(f" - {song}" for song in playlist)
         )
         return Response(message=msg, confidence=0.9, action_performed=True)
@@ -94,5 +94,5 @@ class FitnessAssistant(AIAssistant):
         # assume user.preferences["goal"] holds their fitness goal
         goal = self.user.preferences.get("goal", "endurance")
         routine = self.suggest_workout(goal)
-        msg = f"💪 Here’s a {goal.title()} routine for you:\n{routine}"
+        msg = f"Here’s a {goal.title()} routine for you:\n{routine}"
         return Response(message=msg, confidence=0.85, action_performed=True)
